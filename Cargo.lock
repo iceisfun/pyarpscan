@@ -12,16 +12,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "arp_scanner"
-version = "0.1.0"
-dependencies = [
- "cidr",
- "csv",
- "pnet",
- "pyo3",
-]
-
-[[package]]
 name = "autocfg"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -233,6 +223,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "89ae43fd86e4158d6db51ad8e2b80f313af9cc74f5c0e03ccb87de09998732de"
 dependencies = [
  "unicode-ident",
+]
+
+[[package]]
+name = "pyarpscan"
+version = "0.1.0"
+dependencies = [
+ "cidr",
+ "csv",
+ "pnet",
+ "pyo3",
 ]
 
 [[package]]

@@ -1,4 +1,4 @@
-# arp_scanner
+# pyarpscan
 
 A fast ARP network scanner Python module written in Rust. It discovers hosts on local IPv4 networks using ARP requests and identifies device vendors via an embedded OUI database.
 
@@ -42,19 +42,19 @@ sudo python your_script.py
 ## Quick Start
 
 ```python
-import arp_scanner
+import pyarpscan
 
 # List available network interfaces
-interfaces = arp_scanner.list_interfaces()
+interfaces = pyarpscan.list_interfaces()
 print(f"Interfaces: {interfaces}")
 
 # Scan a network (auto-detect network from interface)
-hosts = arp_scanner.scan_network("eth0")
+hosts = pyarpscan.scan_network("eth0")
 for host in hosts:
     print(f"{host.ip} -> {host.mac} ({host.vendor})")
 
 # Scan a specific network range with custom timeout
-hosts = arp_scanner.scan_network("eth0", network="192.168.1.0/24", timeout=5)
+hosts = pyarpscan.scan_network("eth0", network="192.168.1.0/24", timeout=5)
 ```
 
 ## API Reference
@@ -94,8 +94,8 @@ Represents a discovered host on the network.
 ## Example Output
 
 ```python
->>> import arp_scanner
->>> hosts = arp_scanner.scan_network("eth0", timeout=2)
+>>> import pyarpscan
+>>> hosts = pyarpscan.scan_network("eth0", timeout=2)
 >>> for h in hosts:
 ...     print(h)
 192.168.1.1 at 74:4d:28:aa:bb:cc (Routerboard.com)

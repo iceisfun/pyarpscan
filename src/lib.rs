@@ -18,19 +18,19 @@
 //! # Example
 //!
 //! ```python
-//! import arp_scanner
+//! import pyarpscan
 //!
 //! # List available interfaces
-//! interfaces = arp_scanner.list_interfaces()
+//! interfaces = pyarpscan.list_interfaces()
 //! print(f"Available interfaces: {interfaces}")
 //!
 //! # Scan a network (auto-detect network from interface)
-//! hosts = arp_scanner.scan_network("eth0")
+//! hosts = pyarpscan.scan_network("eth0")
 //! for host in hosts:
 //!     print(f"{host.ip} -> {host.mac} ({host.vendor})")
 //!
 //! # Scan a specific network range
-//! hosts = arp_scanner.scan_network("eth0", network="192.168.1.0/24", timeout=5)
+//! hosts = pyarpscan.scan_network("eth0", network="192.168.1.0/24", timeout=5)
 //! ```
 
 use pnet::datalink::{self, Channel::Ethernet, DataLinkReceiver, DataLinkSender, NetworkInterface};
@@ -308,8 +308,8 @@ fn scan_network(
 ///     list[str]: Names of available network interfaces (e.g., ["lo", "eth0", "wlan0"]).
 ///
 /// Example:
-///     >>> import arp_scanner
-///     >>> interfaces = arp_scanner.list_interfaces()
+///     >>> import pyarpscan
+///     >>> interfaces = pyarpscan.list_interfaces()
 ///     >>> print(interfaces)
 ///     ['lo', 'eth0', 'wlan0']
 #[pyfunction]
@@ -336,7 +336,7 @@ fn list_interfaces() -> Vec<String> {
 /// Classes:
 ///     Host: Represents a discovered host with ip, mac, and vendor attributes
 #[pymodule]
-fn arp_scanner(m: &Bound<'_, PyModule>) -> PyResult<()> {
+fn _pyarpscan(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_class::<Host>()?;
     m.add_function(wrap_pyfunction!(scan_network, m)?)?;
     m.add_function(wrap_pyfunction!(list_interfaces, m)?)?;

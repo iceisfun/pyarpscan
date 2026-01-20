@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Basic example demonstrating arp_scanner module usage.
+"""Basic example demonstrating pyarpscan module usage.
 
 This script shows how to:
 1. List available network interfaces
@@ -16,13 +16,13 @@ Requirements:
 """
 
 import sys
-import arp_scanner
+import pyarpscan
 
 
 def main():
     # List available interfaces
     print("Available network interfaces:")
-    interfaces = arp_scanner.list_interfaces()
+    interfaces = pyarpscan.list_interfaces()
     for iface in interfaces:
         print(f"  - {iface}")
     print()
@@ -52,7 +52,7 @@ def main():
 
     try:
         # Perform the scan
-        hosts = arp_scanner.scan_network(
+        hosts = pyarpscan.scan_network(
             interface=interface,
             network=network,
             timeout=3,
