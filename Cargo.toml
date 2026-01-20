@@ -1,0 +1,26 @@
+[package]
+name = "arp_scanner"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+description = "Fast ARP network scanner with OUI vendor lookup"
+license = "MIT"
+repository = "https://github.com/iceisfun/pyarpscan"
+keywords = ["arp", "network", "scanner", "oui"]
+categories = ["network-programming"]
+
+[lib]
+name = "arp_scanner"
+crate-type = ["cdylib"]
+
+[dependencies]
+pnet = "0.34.0"
+cidr = "0.2"
+csv = "1"
+pyo3 = { version = "0.22", features = ["extension-module"] }
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = "z"
+strip = true

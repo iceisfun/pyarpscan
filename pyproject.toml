@@ -1,0 +1,41 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "arp_scanner"
+version = "0.1.0"
+description = "Fast ARP network scanner with OUI vendor lookup"
+requires-python = ">=3.8"
+readme = "README.md"
+license = {text = "MIT"}
+keywords = ["arp", "network", "scanner", "discovery", "mac", "oui", "vendor"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Rust",
+    "Topic :: System :: Networking",
+    "Topic :: System :: Systems Administration",
+]
+
+[project.urls]
+Repository = "https://github.com/iceisfun/pyarpscan"
+Documentation = "https://github.com/iceisfun/pyarpscan#readme"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "maturin>=1.0,<2.0"]
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
