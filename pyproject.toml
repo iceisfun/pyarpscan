@@ -32,6 +32,7 @@ classifiers = [
 ]
 
 [project.urls]
+Homepage = "https://github.com/iceisfun/pyarpscan"
 Repository = "https://github.com/iceisfun/pyarpscan"
 Documentation = "https://github.com/iceisfun/pyarpscan#readme"
 
